@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import { Fragment, useState } from "react";
+import {  Person,  Person2 } from './pagess/Person'
+import {Bar} from './pages/Bar'
+import {BrowserRouter as Router,Routes,Route,NavLink} from 'react-router-dom'
+import Home from "./pagess/home";
+import About from "./pagess/about";
+import All from "./pagess/All";
+import Post from "./pagess/post";
+import NotFound from "./pagess/NotFound";
+import LoadingProvider from './LoadingContext'
+
 import './App.css';
 
-function App() {
+export function App(props) {
+  const [value,setValue]=useState("")
+  // const {children} = props;
+
+  const setClassName = ({ isActive }) => isActive ? 'active' : 'disabled'
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+   <LoadingProvider>
+      <Router>
+      <NavLink className={setClassName} to="/" style={{margin:"20px"}}>home</NavLink>
+      <NavLink className={setClassName} to="/about" style={{margin:"20px"}}>About</NavLink>
+      <NavLink className={setClassName} to="/all" style={{margin:"20px"}}>all</NavLink>
+         <Routes>
+         <Route path="/" element={<Home/>} />
+       <Route path="/about" element={<About/>} />
+       <Route path="/all" element={<All/>} />
+       <Route path="/post/:id" element={<Post/>} />
+       <Route path="*" element={<NotFound/>} />
+         </Routes>
+      </Router>
+      </LoadingProvider>
+    </>
   );
 }
 
-export default App;

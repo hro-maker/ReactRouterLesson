@@ -1,0 +1,23 @@
+.post__item-title {}
+
+.post {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post__item-header {
+    display: flex;
+    gap: 10px;
+    background-color: rgb(123, 84, 84);
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.post__item-id {}
+
+.post__item {
+    padding: 20px;
+    width: 300px;
+
+}
