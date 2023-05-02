@@ -1,7 +1,7 @@
 import {COUNTER_DECREMENT,COUNTER_INCREMENT,COUNTER_CHANGEWITH_VALUE} from '../dispatchs/CounterActions'
 
 const initialState={
-      count:0,
+      posts:[ ] ,
 }
 export const CounterReducer=(state=initialState,action)=>{
     switch (action.type) {
