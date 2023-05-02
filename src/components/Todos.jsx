@@ -10,7 +10,8 @@ export default function Todos() {
     e.preventDefault()
     const newTodo={
         title,
-        id:Math.floor(Math.random() *1000)
+        id:Math.floor(Math.random() *1000),
+        isChecked:true
     }
     dispatch(CreateTodoActionCreator(newTodo))
    }
@@ -28,6 +29,7 @@ export default function Todos() {
                                 {
                                     el.title
                                 }
+                                <input type="checkbox" checked={el.isChecked} />
                             </div>
                     )
                 })
